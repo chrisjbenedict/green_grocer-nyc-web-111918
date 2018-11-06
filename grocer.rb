@@ -81,4 +81,9 @@ def checkout(cart, coupons)
     # add the price x count to the total
     total += attributes[:price] * attributes[:count]
   end
+  # applies a 10% discount if the cart is over $100
+  if total > 100
+    total = total * 0.9
+  end
+  total
 end
