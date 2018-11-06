@@ -21,7 +21,31 @@ end
 
 def apply_coupons(cart, coupons)
   # code here
-
+  # iterate over each coupon
+  coupons.each do |coupon|
+    # set the coupon's :item attribute equal to "item" and :num to num
+    item = coupon[:item]
+    num = coupon[:num]
+    # if the cart's item is equal to the item
+    # and the num is great than or equal to count in cart,
+    if cart[item] == item && cart[item][:num] >= num
+      # if there is already a coupon applied
+      if cart["#{item} W/COUPON"]
+        # increment the coupon count
+        cart["#{item} W/COUPON"][:count] += 1
+      # if there is no coupon applied
+      else
+        # apply the first coupon by count = 1 and 
+        # setting price to coupon price
+        cart["#{item} W/COUPON"] = {:count => 1, :price => coupon[:cost]}
+      end
+      # reduce the number of items in the cart by 
+      # the number of items needed for the coupon
+      cart[item][:count] -= coupon[:num]
+    end
+  end
+  #return the cart
+  cart
 end
 
 def apply_clearance(cart)
