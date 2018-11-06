@@ -57,7 +57,7 @@ def apply_clearance(cart)
     # if there clearance element in attributes is true
     if attributes[:clearance]
       # set clearance_price equal to the old price w/ a 20% discount
-      clearance_price = attributes[:price] * 0.80
+      clearance_price = attributes[:price] * 0.8
       # set the price attribute equal to the new price rounded to 2 decimal places
       attributes[:price] = clearance_price.round(2)
     end
@@ -85,5 +85,6 @@ def checkout(cart, coupons)
   if total > 100
     total = total * 0.9
   end
+  # return total
   total
 end
