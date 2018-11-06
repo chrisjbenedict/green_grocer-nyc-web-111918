@@ -26,8 +26,8 @@ def apply_coupons(cart, coupons)
     # set the coupon's :item attribute equal to "item" and :num to num
     item = coupon[:item]
     num = coupon[:num]
-    # if the cart's item is equal to the item
-    # and the num is great than or equal to count in cart,
+    # if the cart has an item in w/ a coupon and the required num 
+    # for coupon is great than or equal to count in cart,
     if cart[item] && cart[item][:num] >= num
       # if there is already a coupon applied
       if cart["#{item} W/COUPON"]
@@ -38,7 +38,7 @@ def apply_coupons(cart, coupons)
         # apply the first coupon by count = 1 and
         # setting price to coupon price
         cart["#{item} W/COUPON"] = {:count => 1, :price => coupon[:cost]}
-        cart["#{item} W/COUPON"][:clearance] = cart[name][:clearance]
+        # cart["#{item} W/COUPON"][:clearance] = cart[name][:clearance]
       end
       # reduce the number of items in the cart by
       # the number of items needed for the coupon
