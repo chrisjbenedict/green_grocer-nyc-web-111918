@@ -28,7 +28,7 @@ def apply_coupons(cart, coupons)
     num = coupon[:num]
     # if the cart's item is equal to the item
     # and the num is great than or equal to count in cart,
-    if cart[item] == item && cart[item][:num] >= num
+    if cart[item] && cart[item][:num] >= num
       # if there is already a coupon applied
       if cart["#{item} W/COUPON"]
         # increment the coupon count
