@@ -70,9 +70,15 @@ def checkout(cart, coupons)
   # code here
   # calls on consolidate_cart
   updated_cart = consolidate_cart(cart)
-  # calls on apply_coupons
-  cart_with_coupons = apply_coupons(updated_cart)
-  # calls on apply_clearance
+  # applies coupons to updated cart
+  cart_with_coupons = apply_coupons(updated_cart, coupons)
+  # applies clearance to the cart w/ coupons applied
   cart_total = apply_clearance(cart_with_coupons)
-  
+  # initialize total and set equal to zero
+  total = 0
+  # for each item/attribute pair in the cart
+  cart_total.each do |item, attributes|
+    # add the price x count to the total 
+    total += attributes[:price] * attributes[:count]
+  end
 end
