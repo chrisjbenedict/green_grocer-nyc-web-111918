@@ -1,6 +1,6 @@
 def consolidate_cart(cart)
   # code here
-  # .each_with_object iterates the given block for each element with an 
+  # .each_with_object iterates the given block for each element with an
   # arbitrary object given, and returns the initially given object.
   cart.each_with_object({}) do |item, hash|
     # over each element/object pair, iterate over the food type/attribute pair
@@ -21,7 +21,7 @@ end
 
 def apply_coupons(cart, coupons)
   # code here
-  
+
 end
 
 def apply_clearance(cart)
