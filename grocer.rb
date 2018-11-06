@@ -38,7 +38,7 @@ def apply_coupons(cart, coupons)
         # apply the first coupon by count = 1 and
         # setting price to coupon price
         cart["#{item} W/COUPON"] = {:count => 1, :price => coupon[:cost]}
-        cart["#{item} W/COUPON"][:clearance] = cart[name][:clearance]
+        cart["#{item} W/COUPON"][:clearance] = cart[item][:clearance]
       end
       # reduce the number of items in the cart by
       # the number of items needed for the coupon
@@ -51,7 +51,7 @@ end
 
 def apply_clearance(cart)
   # code here
-  # iterate over each item/attribute pair in the cart 
+  # iterate over each item/attribute pair in the cart
   cart.each do |item, attributes|
     # if there clearance element in attributes is true
     if attributes[:clearance]
