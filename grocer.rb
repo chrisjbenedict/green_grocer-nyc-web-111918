@@ -26,7 +26,7 @@ def apply_coupons(cart, coupons)
     # set the coupon's :item attribute equal to "item" and :num to num
     item = coupon[:item]
     num = coupon[:num]
-    # if the cart has an item in w/ a coupon and the required num 
+    # if the cart has an item in w/ a coupon and the required num
     # for coupon is great than or equal to count in cart,
     if cart[item] && cart[item][:num] >= num
       # if there is already a coupon applied
