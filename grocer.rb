@@ -35,13 +35,14 @@ def apply_coupons(cart, coupons)
         cart["#{item} W/COUPON"][:count] += 1
       # if there is no coupon applied
       else
-        # apply the first coupon by count = 1 and
-        # setting price to coupon price
+        # add the first coupon by count = 1 and
+        # set price to new coupon price
         cart["#{item} W/COUPON"] = {:count => 1, :price => coupon[:cost]}
+        # remembers the item was on clearance
         cart["#{item} W/COUPON"][:clearance] = cart[item][:clearance]
       end
       # reduce the number of items in the cart by
-      # the number of items needed for the coupon
+      # the number of items needed for each coupon
       cart[item][:count] -= num
     end
   end
@@ -67,4 +68,11 @@ end
 
 def checkout(cart, coupons)
   # code here
+  # calls on consolidate_cart 
+  updated_cart = consolidate_cart(cart)
+  # calls on apply_coupons 
+  cart_with_coupons = apply_coupons(updated_cart)
+  # calls on apply_clearance 
+  cart_total = apply_clearance(cart_with_coupons)
+  
 end
