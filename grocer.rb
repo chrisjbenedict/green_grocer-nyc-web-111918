@@ -78,7 +78,7 @@ def checkout(cart, coupons)
   total = 0
   # for each item/attribute pair in the cart
   cart_total.each do |item, attributes|
-    # add the price x count to the total 
+    # add the price x count to the total
     total += attributes[:price] * attributes[:count]
   end
 end
